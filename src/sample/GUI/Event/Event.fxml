@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="504.0" prefWidth="827.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Home.HomeController">
+   <children>
+      <ImageView fitHeight="511.0" fitWidth="908.0" layoutX="-18.0" layoutY="-1.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@dog_face_wind_glasses_96452_1920x1080.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

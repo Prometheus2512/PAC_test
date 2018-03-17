@@ -2,26 +2,34 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="177.0" style="-fx-background-color: #202729;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.DrawerController">
+<VBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="177.0" style="-fx-background-color: #202729;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Main.DrawerController">
    <children>
-      <JFXButton id="myButton" fx:id="home" layoutX="22.0" layoutY="365.0" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@style.css" text="HOME" textFill="#ababab">
+      <Accordion />
+      <JFXButton id="myButton" fx:id="home" layoutX="19.0" layoutY="140.0" onAction="#showhome" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@style.css" text="HOME" textFill="#ababab">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <JFXButton id="myButton" fx:id="account" layoutX="19.0" layoutY="117.0" onAction="#showaccount" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@style.css" text="MY ACCOUNT" textFill="#ababab">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      
       <JFXButton id="myButton" fx:id="pets" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@style.css" text="PETS" textFill="#ababab">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton id="myButton" fx:id="events" prefHeight="45.0" prefWidth="150.0" styleClass="myButton" stylesheets="@style.css" text="EVENTS" textFill="#ababab">
+      <JFXButton id="myButton" fx:id="events" onAction="#showevent" prefHeight="45.0" prefWidth="150.0" styleClass="myButton" stylesheets="@style.css" text="EVENTS" textFill="#ababab">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXButton id="myButton" fx:id="blog" prefHeight="45.0" prefWidth="150.0" styleClass="myButton" stylesheets="@style.css" text="BLOG" textFill="#ababab">
+         <JFXButton id="myButton" fx:id="blog" prefHeight="45.0" prefWidth="150.0" styleClass="myButton" stylesheets="@style.css" text="BLOG" textFill="#ababab">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

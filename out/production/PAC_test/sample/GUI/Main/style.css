@@ -1,7 +1,7 @@
 .myButton {
     -fx-border-width: 0 0 0 5; -fx-border-color: transparent transparent green  transparent;
--fx-max-width: 165px;
--fx-min-width: 165px;
+-fx-max-width: 168px;
+-fx-min-width: 168px;
 }
 
 .myButton:hover {

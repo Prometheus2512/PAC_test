@@ -206,7 +206,6 @@ public class AccountController implements Initializable {
             leboutonperdu.setDisable(false);
         }
 
-/*f*/
 
 /*
 if(Main.actualuser.getPassword().equals(lechercheur.getText()))

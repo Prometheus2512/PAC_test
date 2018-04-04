@@ -8,14 +8,51 @@ import sample.Main;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class EventService implements IEventService{
     Connection conn;
+
+    @Override
+    public Event showEvent(int id) {
+        conn = DBConnection.getInstance().getCon();
+
+
+        Event e = new Event();
+        try {
+            String query = "select * from event where id = ?;";
+            PreparedStatement stm = conn.prepareStatement(query);
+            stm.setString(1, String.valueOf(id));
+            ResultSet rest = stm.executeQuery();
+            while(rest.next()){
+                e.setId(rest.getInt("id"));
+                e.setName(rest.getString("Name"));
+                e.setDescription(rest.getString("Description"));
+                e.setCost(rest.getDouble("cost"));
+                e.setCapacity(rest.getInt("capacity"));
+                e.setAddress(rest.getString("address"));
+                e.setBegin(rest.getDate("BeginningDate"));
+                e.setEnd(rest.getDate("EndingDate"));
+                e.setHost(rest.getInt("hostid_id"));
+                e.setPosx(rest.getDouble("posx"));
+                e.setPosy(rest.getDouble("posy"));
+                e.setViews(rest.getInt("views"));
+                e.setValidated(rest.getInt("validated"));
+                e.setBrochure(rest.getString("brochure"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return e ;    }
+
     @Override
     public void addEvent(Event E) {
         conn = DBConnection.getInstance().getCon();
@@ -92,5 +129,43 @@ System.out.println("Event added !");
         } catch (SQLException ex) {
             Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public List<Event> allEvents() {
+        conn = DBConnection.getInstance().getCon();
+
+        ArrayList<Event>  events = new ArrayList<Event>();
+        try {
+            String query = "select * from `event` ORDER BY  BeginningDate ASC ;";
+            PreparedStatement stm = conn.prepareStatement(query);
+
+            ResultSet rest = stm.executeQuery();
+            while(rest.next()){
+                Event e = new Event();
+               e.setId(rest.getInt("id"));
+               e.setName(rest.getString("Name"));
+               e.setDescription(rest.getString("Description"));
+               e.setCost(rest.getDouble("cost"));
+               e.setCapacity(rest.getInt("capacity"));
+               e.setAddress(rest.getString("address"));
+               e.setBegin(rest.getDate("BeginningDate"));
+               e.setEnd(rest.getDate("EndingDate"));
+               e.setHost(rest.getInt("hostid_id"));
+               e.setPosx(rest.getDouble("posx"));
+               e.setPosy(rest.getDouble("posy"));
+               e.setViews(rest.getInt("views"));
+               e.setValidated(rest.getInt("validated"));
+               e.setBrochure(rest.getString("brochure"));
+
+               events.add(e);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return events ;
+
+
     }
 }

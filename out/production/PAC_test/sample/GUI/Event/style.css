@@ -1,0 +1,20 @@
+        .scroll-pane > .viewport {
+        -fx-background-color: transparent;
+        }
+        .scroll-pane{
+            -fx-background-color:transparent;
+        }
+        .haja:hover
+        {
+            -fx-background-color:gray;
+            -fx-opacity: 0.30;
+
+        }
+        /*
+
+        .haja2:hover
+        {
+            -fx-background-color:#2EB398;
+            -fx-opacity: 1;
+
+        }        */

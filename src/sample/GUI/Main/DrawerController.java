@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -120,6 +121,7 @@ public class DrawerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        pets.setContentDisplay(ContentDisplay.RIGHT);
         home.setStyle(    "-fx-text-fill: #2EB398;");
 
         about.setStyle(    "-fx-text-fill: #ababab;");

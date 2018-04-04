@@ -5,13 +5,21 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.mindrot.jbcrypt.BCrypt;
 import sample.Main;
+import sample.Services.UserService;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -216,7 +224,7 @@ if(Main.actualuser.getPassword().equals(lechercheur.getText()))
 }
 */
 
-        
+
 
 
     }
@@ -234,5 +242,31 @@ if(Main.actualuser.getPassword().equals(lechercheur.getText()))
     void confirmedit(ActionEvent event) {
     Edit.setVisible(false);
     cEdit.setVisible(true);
+    }
+
+
+    @FXML
+    void deleteaction(ActionEvent event) {
+        UserService us = new UserService();
+        Stage stage = (Stage) leboutonperdu1.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../Login/Login.fxml"));
+            Parent root2 = (Parent) fxmlLoader.load();
+            Stage stage2;
+            stage2 = new Stage();
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initStyle(StageStyle.UNDECORATED);
+            stage2.setTitle("ABC");
+            stage2.setScene(new Scene(root2));
+
+            stage2.show();
+
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
+        us.deleteUser(Main.actualuser.getId());
     }
 }

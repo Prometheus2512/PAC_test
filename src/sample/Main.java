@@ -21,10 +21,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import java.sql.Connection;
+import java.util.List;
 
 public class Main extends Application {
     public  static User actualuser=null;
     public  static String actualpassword=null;
+    public static Event actualevent=null;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -50,13 +52,18 @@ public class Main extends Application {
         E.setCost(22);
         E.setDescription("testdesc");
         es.addEvent(E);*/
-       /* EventService es= new EventService();
-        es.approveEvent(6);*/
+     /*   EventService es= new EventService();
+        List<Event> le=es.allEvents();
+        for (Event e:le
+             ) {System.out.println(e.getName());
+
+        }*/
 
 
         Parent root = FXMLLoader.load(getClass().getResource("GUI/Login/Login.fxml"));
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(root));
+
         primaryStage.show();
 
     }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="198.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Event.OneeventController">
+   <children>
+      <AnchorPane id="haja" fx:id="haja" layoutX="108.0" layoutY="11.0" prefHeight="178.0" prefWidth="456.0" style="-fx-cursor: hand;" styleClass="haja" stylesheets="@style.css">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane fx:id="fazain" layoutX="117.0" layoutY="21.0" onMouseEntered="#hajashow" onMouseExited="#hajahide" opacity="0.2" prefHeight="160.0" prefWidth="439.0" style="-fx-background-color: gray; -fx-cursor: hand; -fx-background-radius: 5;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+      <Label fx:id="name" layoutX="299.0" layoutY="34.0" onMouseClicked="#showsinglelady" onMouseEntered="#hajashow" onMouseExited="#hajahide" style="-fx-cursor: hand;" text="Label" />
+      <AnchorPane layoutX="126.0" layoutY="34.0" prefHeight="113.0" prefWidth="112.0" style="-fx-background-color: #2EB398; -fx-background-radius: 5; -fx-pref-width: 112; -fx-pref-height: 112;" />
+      <ImageView fx:id="staticmap" fitHeight="99.0" fitWidth="112.0" layoutX="133.0" layoutY="40.0" nodeOrientation="INHERIT" onMouseEntered="#hajashow" onMouseExited="#hajahide" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+         <image>
+            <Image url="@dog_face_wind_glasses_96452_1920x1080.jpg" />
+         </image></ImageView>
+      <Text fx:id="description" layoutX="285.0" layoutY="83.0" onMouseEntered="#hajashow" onMouseExited="#hajahide" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-cursor: hand;" text="Text" wrappingWidth="213.7294921875" />
+      <AnchorPane layoutX="40.0" prefHeight="202.0" prefWidth="5.0" style="-fx-background-color: #2EB398; -fx-pref-width: 5;" />
+      <Circle fill="#2eb398" layoutX="42.0" layoutY="98.0" radius="40.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <VBox alignment="CENTER" layoutX="2.0" layoutY="34.0" prefHeight="120.0" prefWidth="80.0">
+         <children>
+            <Label fx:id="day" prefHeight="31.0" prefWidth="36.0" text="04" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="month" text="February" textAlignment="CENTER" textFill="WHITE" />
+         </children>
+      </VBox>
+      <Label fx:id="id" layoutX="489.0" layoutY="177.0" text="Label" />
+   </children>
+</AnchorPane>

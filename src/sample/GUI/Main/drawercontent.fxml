@@ -19,7 +19,7 @@
          </cursor>
       </JFXButton>
       
-      <JFXButton id="myButton" fx:id="pets" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@style.css" text="PETS" textFill="#ababab">
+      <JFXButton id="myButton" fx:id="pets" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@style.css" text="PETS" textAlignment="RIGHT" textFill="#ababab">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

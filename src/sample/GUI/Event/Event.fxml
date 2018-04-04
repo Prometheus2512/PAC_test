@@ -1,15 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="504.0" prefWidth="827.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Home.HomeController">
+<AnchorPane prefHeight="643.0" prefWidth="1127.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Event.EventController">
    <children>
-      <ImageView fitHeight="511.0" fitWidth="908.0" layoutX="-18.0" layoutY="-1.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="665.0" fitWidth="1159.0" layoutX="-18.0" layoutY="-1.0" opacity="0.16" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@dog_face_wind_glasses_96452_1920x1080.jpg" />
          </image>
       </ImageView>
+      <ScrollPane fx:id="AllEvents" layoutX="223.0" layoutY="61.0" prefHeight="553.0" prefWidth="788.0" style="backgrou: black;" stylesheets="@style.css">
+         <content>
+            <VBox fx:id="eventlist" prefHeight="306.0" prefWidth="513.0">
+               <children>
+                  <AnchorPane prefHeight="198.0" prefWidth="474.0">
+                     <children>
+                        <AnchorPane id="haja2" fx:id="haja2" layoutX="110.0" layoutY="6.0" onMouseEntered="#haja2show" onMouseExited="#haja2hide" prefHeight="178.0" prefWidth="456.0" style="-fx-cursor: hand;" styleClass="haja2" stylesheets="@style.css">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                           <children>
+                              <AnchorPane fx:id="addbutton" layoutX="9.0" layoutY="9.0" onMouseClicked="#addbutton" opacity="0.66" prefHeight="160.0" prefWidth="439.0" style="-fx-background-color: #2EB398; -fx-cursor: hand; -fx-background-radius: 5;">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="306.0" layoutY="49.0" onMouseEntered="#haja2show" style="-fx-cursor: hand;" text="+" textFill="WHITE">
+                           <font>
+                              <Font size="68.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="33.0" prefWidth="628.0">
+                     <children>
+                        <AnchorPane layoutX="40.0" layoutY="24.0" prefHeight="202.0" prefWidth="5.0" style="-fx-background-color: #2EB398; -fx-pref-height: 100;" />
+                        <AnchorPane layoutX="79.0" layoutY="62.0" prefHeight="6.0" prefWidth="200.0" style="-fx-background-color: #2EB398; -fx-pref-height: 5;" />
+                        <Circle fill="#2eb398" layoutX="42.0" layoutY="64.0" radius="40.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <AnchorPane layoutX="406.0" layoutY="62.0" prefHeight="7.0" prefWidth="280.0" style="-fx-background-color: #2EB398; -fx-pref-height: 5; -fx-pref-width: 200;" />
+                        <Label layoutX="283.0" layoutY="17.0" prefHeight="93.0" prefWidth="150.0" text="TODAY" textFill="#2eb398">
+                           <font>
+                              <Font size="33.0" />
+                           </font>
+                        </Label>
+                        <VBox alignment="CENTER" layoutX="3.0" prefHeight="120.0" prefWidth="80.0">
+                           <children>
+                              <Label fx:id="day" prefHeight="31.0" prefWidth="36.0" text="04" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="month" text="February" textAlignment="CENTER" textFill="WHITE" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <AnchorPane prefHeight="47.0" prefWidth="1142.0" style="-fx-background-color: #202729;">
+         <children>
+            <JFXButton id="myButton" fx:id="btnmyevents" layoutX="527.0" layoutY="2.0" onAction="#ShowMyEvents" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@../Account/Style.css" text="MY EVENTS" textFill="#ababab">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton id="myButton" fx:id="btnupevents" layoutX="377.0" layoutY="2.0" onAction="#ShowUpEvents" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@../Account/Style.css" text="UPCOMING EVENTS" textFill="#ababab">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton id="myButton" fx:id="btnnew" layoutX="677.0" layoutY="2.0" onAction="#ShowNewEvent" prefHeight="45.0" prefWidth="105.0" styleClass="myButton" stylesheets="@../Account/Style.css" text="MY RESERVATIONS" textFill="#ababab">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

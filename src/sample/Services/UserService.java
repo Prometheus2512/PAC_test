@@ -49,7 +49,6 @@ public class UserService implements IUserService{
                 st.setString(11,u.getEmail());
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 Date date = new Date();
-                System.out.println(dateFormat.format(date));
                 st.setString(12,dateFormat.format(date));
 
 
@@ -164,5 +163,51 @@ return true;
     System.out.println("not good at all ");
         }
         return u ;
+    }
+
+    @Override
+    public void editUser(User u) {
+        try {
+/*
+            `username`,`password` ,`email`,`firstname`,`lastname`,`phonenumber`,`address`,`roles`,`enabled`,`username_canonical`,`email_canonical`,`last_login`
+*/
+            String query = "update `user` set username =?,username_canonical = ? , email =? , email_canonical =? , firstname =? , lastname =?, phonenumber = ? ,address = ? where id =?  ;";
+            PreparedStatement st = conn.prepareStatement(query);
+
+            st.setString(1, u.getUsername());
+            st.setString(2, u.getUsername());
+
+            st.setString(3, u.getEmail());
+            st.setString(4, u.getEmail());
+
+            st.setString(5, u.getFirstname());
+            st.setString(6, u.getLastname());
+            st.setString(7, u.getPhonenumber());
+            st.setString(8, u.getAddress());
+            st.setString(9,String.valueOf(u.getId()));
+
+
+            st.execute();
+            System.out.println("Changes saved successfully !");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        try {
+            String query = "delete from user where id =?";
+            PreparedStatement st = conn.prepareStatement(query);
+
+            st.setString(1,String.valueOf(id));
+            st.execute();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

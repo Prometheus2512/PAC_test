@@ -121,7 +121,7 @@ staticmap.setImage(i);
             e.printStackTrace();
         }
         s.initStyle(StageStyle.UNDECORATED);
-        s.setWidth(410);
+        s.setWidth(810);
         s.setHeight(700 );
         s.setScene(new Scene(root));
         s.show();

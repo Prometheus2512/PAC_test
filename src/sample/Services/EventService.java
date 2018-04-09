@@ -6,10 +6,7 @@ import sample.IServices.IEventService;
 import sample.IServices.IUserService;
 import sample.Main;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,8 +35,15 @@ public class EventService implements IEventService{
                 e.setCost(rest.getDouble("cost"));
                 e.setCapacity(rest.getInt("capacity"));
                 e.setAddress(rest.getString("address"));
-                e.setBegin(rest.getDate("BeginningDate"));
-                e.setEnd(rest.getDate("EndingDate"));
+                java.util.Date date1;
+                java.util.Date date2;
+                Timestamp timestamp1 = rest.getTimestamp("BeginningDate");
+                Timestamp timestamp2 = rest.getTimestamp("EndingDate");
+                date1 = new java.util.Date(timestamp1.getTime());
+                date2 = new java.util.Date(timestamp2.getTime());
+
+                e.setBegin(date1);
+                e.setEnd(date2);
                 e.setHost(rest.getInt("hostid_id"));
                 e.setPosx(rest.getDouble("posx"));
                 e.setPosy(rest.getDouble("posy"));
@@ -52,6 +56,7 @@ public class EventService implements IEventService{
             Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return e ;    }
+
 
     @Override
     public void addEvent(Event E) {
@@ -76,7 +81,7 @@ public class EventService implements IEventService{
             st.setString(10, String.valueOf(E.getCost()));
 
             st.setString(11, String.valueOf(0));
-            st.setString(12, "ea754675d709f02abb15b3fb84f1213a.jpeg");
+            st.setString(12, E.getBrochure());
             st.setString(13,E.getDescription());
 
 System.out.println("Event added !");
@@ -107,8 +112,98 @@ System.out.println("Event added !");
     }
 
     @Override
-    public void updateEvent(Event E) {
+    public void updateEvent(Event u) {
+      /*  try {
+            String query = "update `event` set Name =? , Description =? , capacity =? , cost =? ,  BeginningDate=?, EndingDate = ? , brochure=? where id =?  ;";
+            PreparedStatement st = conn.prepareStatement(query);
 
+            st.setString(1, u.getLogin());
+            st.setString(2, u.getPassword());
+            st.setString(3, u.getEmail());
+            st.setString(4, u.getRole().getName());
+            st.setString(5, u.getId());
+            st.setString(7, u.getId());
+            st.setString(6, u.getPhoto());
+
+            st.execute();
+            System.out.println("Service.UserService.modifierUser()");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }
+
+    public void updateEventname() {
+        conn = DBConnection.getInstance().getCon();
+
+        try {
+            String query = "update `event` set Name =? where id =?  ;";
+            PreparedStatement st = conn.prepareStatement(query);
+
+            st.setString(1, Main.actualevent.getName());
+            st.setString(2, String.valueOf(Main.actualevent.getId()));
+
+
+            st.execute();
+            System.out.println("Event's name changed to :"+ Main.actualevent.getName());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void updateEventdescription() {
+        conn = DBConnection.getInstance().getCon();
+
+        try {
+            String query = "update `event` set  Description=? where id =?  ;";
+            PreparedStatement st = conn.prepareStatement(query);
+
+            st.setString(1, Main.actualevent.getDescription());
+            st.setString(2, String.valueOf(Main.actualevent.getId()));
+
+
+            st.execute();
+            System.out.println("Event's description changed to :"+ Main.actualevent.getDescription());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void updateEventcost() {
+        conn = DBConnection.getInstance().getCon();
+
+        try {
+            String query = "update `event` set  cost=? where id =?  ;";
+            PreparedStatement st = conn.prepareStatement(query);
+
+            st.setString(1, String.valueOf(Main.actualevent.getCost()));
+            st.setString(2, String.valueOf(Main.actualevent.getId()));
+
+
+            st.execute();
+            System.out.println("Event's description changed to :"+ Main.actualevent.getCost());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void updateEventcapacity() {
+        conn = DBConnection.getInstance().getCon();
+
+        try {
+            String query = "update `event` set  capacity=? where id =?  ;";
+            PreparedStatement st = conn.prepareStatement(query);
+
+            st.setString(1, String.valueOf(Main.actualevent.getCapacity()));
+            st.setString(2, String.valueOf(Main.actualevent.getId()));
+
+
+            st.execute();
+            System.out.println("Event's description changed to :"+ Main.actualevent.getCost());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override

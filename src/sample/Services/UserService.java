@@ -27,7 +27,27 @@ public class UserService implements IUserService{
     }
     @Override
     public User showUser(String id) {
-        return null;
+
+        User user = new User();
+
+
+        String query = "select * from user where  (id = ? );";
+        PreparedStatement stm = null;
+        try {
+            stm = conn.prepareStatement(query);
+            stm.setString(1, id);
+            ResultSet rest = stm.executeQuery();
+            while (rest.next()) {
+                user.setUsername(rest.getString("username"));
+                user.setId(Integer.parseInt(id));
+                user.setAddress(rest.getString("address"));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+return user;
     }
 
     @Override

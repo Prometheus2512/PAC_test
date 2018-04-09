@@ -42,6 +42,6 @@
             <Label fx:id="month" text="February" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </VBox>
-      <Label fx:id="id" layoutX="489.0" layoutY="177.0" text="Label" />
+      <Label fx:id="id" layoutX="489.0" layoutY="177.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

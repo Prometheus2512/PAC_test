@@ -109,8 +109,8 @@ public class EventController implements Initializable {
             e.printStackTrace();
         }
         s.initStyle(StageStyle.UNDECORATED);
-        s.setWidth(350);
-        s.setHeight(550);
+        s.setWidth(700);
+        s.setHeight(437);
         s.setScene(new Scene(root));
         s.show();
 
@@ -135,29 +135,31 @@ public class EventController implements Initializable {
                 "August", "September", "October", "November", "December" };
         month.setText(monthName[m]);
         EventService es = new EventService();
+        Date today = new Date();
         List<Event> le = es.allEvents();
         for (Event e : le) {
-            Main.actualevent=e;
-            try {
-                FXMLLoader x = new FXMLLoader(getClass().getResource("oneevent.fxml"));
-                Node pane = x.load();
-                sample.GUI.Event.OneeventController c = x.getController();
-                c.setContent(e);
+            if (today.before(e.getEnd())) {
+                Main.actualevent = e;
+                try {
+                    FXMLLoader x = new FXMLLoader(getClass().getResource("oneevent.fxml"));
+                    Node pane = x.load();
+                    sample.GUI.Event.OneeventController c = x.getController();
+                    c.setContent(e);
 
-                eventlist.getChildren().add(pane);
+                    eventlist.getChildren().add(pane);
 
                 /*Node pane = FXMLLoader.load(getClass().getResource("oneevent.fxml"));
                 sample.GUI.Event.OneeventController.getController().setContent(e);
 
                 eventlist.getChildren().add(pane);*/
 
-            } catch (IOException e1) {
-                e1.printStackTrace();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                System.out.println(e.getName());
             }
-
-            System.out.println(e.getName());
         }
-
 
     }
 }

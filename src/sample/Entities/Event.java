@@ -35,6 +35,9 @@ public class Event {
         this.id = id;
     }
 
+    public Event() {
+    }
+
     public int getHost() {
         return host;
     }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="185.0" prefWidth="357.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Event.SingleCommentary">
+   <children>
+      <AnchorPane layoutX="15.0" layoutY="12.0" prefHeight="113.0" prefWidth="112.0" style="-fx-background-color: #2EB398; -fx-background-radius: 5; -fx-pref-width: 330; -fx-pref-height: 150;">
+         <children>
+            <AnchorPane layoutX="10.0" layoutY="30.0" prefHeight="93.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-radius: 5; -fx-pref-width: 310; -fx-min-width: 50;">
+               <children>
+                  <Text fx:id="content" layoutX="14.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="296.7294921875" />
+               </children>
+            </AnchorPane>
+            <Label fx:id="date" layoutX="188.0" layoutY="130.0" text="date" textFill="WHITE" />
+            <Label fx:id="username" layoutX="21.0" layoutY="9.0" text="Label" textFill="WHITE" underline="true" />
+            <Label layoutX="311.0" layoutY="7.0" onMouseClicked="#askfordelete" style="-fx-cursor: hand;" text="x" textFill="WHITE" fx:id="x" />
+            <AnchorPane fx:id="deleted" layoutX="9.0" layoutY="6.0" prefHeight="140.0" prefWidth="319.0" style="-fx-background-color: #2EB398;" visible="false">
+               <children>
+                  <Label layoutX="15.0" layoutY="50.0" prefHeight="39.0" prefWidth="286.0" text="Commentary Deleted" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="deleteask" layoutX="14.0" layoutY="12.0" opacity="0.9" prefHeight="150.0" prefWidth="330.0" style="-fx-background-color: #2EB398;" visible="false">
+         <children>
+            <JFXButton layoutX="73.0" layoutY="79.0" onAction="#yes" style="-fx-background-color: #1e866f; -fx-cursor: hand;" text="Yes" textFill="WHITE" />
+            <JFXButton layoutX="214.0" layoutY="79.0" onAction="#no" style="-fx-background-color: #1e866f; -fx-cursor: hand;" text="No" textFill="WHITE" />
+            <Text fill="WHITE" layoutX="78.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you sure you want to delete this comment ?" textAlignment="CENTER" wrappingWidth="173.87890625" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

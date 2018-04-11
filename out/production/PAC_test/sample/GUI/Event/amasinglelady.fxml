@@ -195,8 +195,15 @@
          </children>
       </AnchorPane>
       <Button fx:id="ebconfirm" layoutX="210.0" layoutY="633.0" mnemonicParsing="false" onAction="#confirm" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #2EB398; -fx-background-radius: 5px; -fx-text-fill: white;" text="Confirm changes" visible="false" />
-      <Button fx:id="ebundo" layoutX="22.0" layoutY="634.0" mnemonicParsing="false" onAction="#undo" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #2EB398; -fx-background-radius: 5px; -fx-text-fill: white;" text="Undo changes" />
+      <Button fx:id="ebundo" layoutX="22.0" layoutY="634.0" mnemonicParsing="false" onAction="#undo" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #2EB398; -fx-background-radius: 5px; -fx-text-fill: white; -fx-cursor: hand;" text="Undo changes" visible="false" />
       <Label fx:id="error" layoutX="17.0" layoutY="672.0" prefHeight="18.0" prefWidth="522.0" style="-fx-text-fill: red;" text="Label" visible="false" />
-      <Button layoutX="216.0" layoutY="634.0" mnemonicParsing="false" onAction="#deleteevent" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #2EB398; -fx-background-radius: 5px; -fx-text-fill: white;" text="Delete event" />
+      <Button fx:id="delete" layoutX="216.0" layoutY="634.0" mnemonicParsing="false" onAction="#deleteevent" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #2EB398; -fx-background-radius: 5px; -fx-text-fill: white; -fx-cursor: hand;" text="Delete event" visible="false" />
+      <AnchorPane fx:id="deletepane" opacity="0.9" prefHeight="700.0" prefWidth="812.0" style="-fx-background-color: #2EB398;" visible="false">
+         <children>
+            <Text fx:id="deletetext" fill="WHITE" layoutX="240.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Are you sure you won't de delete faza having 5 participants ?" textAlignment="CENTER" wrappingWidth="349.9999910593033" />
+            <Button fx:id="yes" layoutX="266.0" layoutY="337.0" mnemonicParsing="false" onAction="#yes" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: #1e7664; -fx-background-radius: 5; -fx-cursor: hand; -fx-text-fill: white;" text="yes" />
+            <Button fx:id="no" layoutX="481.0" layoutY="337.0" mnemonicParsing="false" onAction="#deleteevent1" prefHeight="32.0" prefWidth="80.0" style="-fx-background-color: #1e7664; -fx-background-radius: 5; -fx-cursor: hand; -fx-text-fill: white;" text="no" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

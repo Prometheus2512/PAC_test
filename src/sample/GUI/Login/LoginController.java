@@ -124,8 +124,9 @@ public class LoginController implements Initializable {
             Main.actualuser=us.Login(uname,pwd);
             if(Main.actualuser!=null)
             {
-
+/*
                 System.out.println(Main.actualuser.getRole());
+*/
                 progress.setVisible(false);
                 wrong.setStyle("-fx-text-fill: green");
                 wrong.setText("Welcome "+Main.actualuser.getUsername());
@@ -133,10 +134,10 @@ public class LoginController implements Initializable {
                 Stage stage2 = (Stage) facebook.getScene().getWindow();
                 // do what you have to do
                 stage2.close();
-                try{
+                try{ if(Main.actualuser.getRole().equals("ROLE_USER")) {
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/GUI/Main/sample.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
-                    LoginController.Controller =fxmlLoader.<sample.GUI.Main.Controller>getController();
+                    LoginController.Controller = fxmlLoader.<sample.GUI.Main.Controller>getController();
                     Stage stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.initStyle(StageStyle.UNDECORATED);
@@ -144,6 +145,23 @@ public class LoginController implements Initializable {
                     stage.setScene(new Scene(root1));
 
                     stage.show();
+                }
+                else if(Main.actualuser.getRole().equals("ROLE_ADMIN"))
+                {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/GUI/Admin/Home/Home.fxml"));
+                    Parent root1 = (Parent) fxmlLoader.load();
+/*
+                    LoginController.Controller = fxmlLoader.<sample.GUI.Main.Controller>getController();
+*/
+                    Stage stage = new Stage();
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.initStyle(StageStyle.UNDECORATED);
+                    stage.setTitle("ABC");
+                    stage.setScene(new Scene(root1));
+
+                    stage.show();
+                }
+
 
                 }catch(IOException e) {
                     e.printStackTrace();

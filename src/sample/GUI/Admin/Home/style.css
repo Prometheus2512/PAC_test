@@ -1,0 +1,17 @@
+.myButton {
+    -fx-border-width: 0 0 0 5; -fx-border-color: transparent transparent green  transparent;
+-fx-max-width: 168px;
+-fx-min-width: 168px;
+}
+
+.myButton:hover {
+    -fx-border-width: 0 0 0 5; -fx-border-color: transparent transparent green  #2EB398;
+    -fx-text-fill: white;
+
+}
+
+
+.jfx-hamburger StackPane {
+    -fx-background-color: white;
+
+}

@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,10 +60,48 @@ public class ReservationService implements IReservationService {
             Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void deletebyevent() {
+        conn = DBConnection.getInstance().getCon();
+
+        try {
+            String query = "delete from reservation where eventid_id =?";
+            PreparedStatement st = conn.prepareStatement(query);
+
+            st.setString(1,String.valueOf(Main.actualevent.getId()));
+
+            st.execute();
+            System.out.println("Reservations deleted ! ");
+        } catch (SQLException ex) {
+            Logger.getLogger(EventService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 
     @Override
     public List<Reservation> myreservations() {
-        return null;
+
+        conn = DBConnection.getInstance().getCon();
+
+        ArrayList<Reservation> reservations = new ArrayList<Reservation>();
+        try {
+            String query = "select * from `reservation` WHERE participantid_id="+Main.actualuser.getId()+";";
+            PreparedStatement stm = conn.prepareStatement(query);
+
+            ResultSet rest = stm.executeQuery();
+            while(rest.next()){
+                Reservation e = new Reservation();
+                e.setId(rest.getInt("id"));
+                e.setEvent(rest.getInt("eventid_id"));
+
+                reservations.add(e);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ReservationService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return reservations ;
+
+
     }
 
     @Override

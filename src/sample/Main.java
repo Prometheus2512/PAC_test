@@ -22,15 +22,31 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import java.sql.Connection;
 import java.util.List;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 
 public class Main extends Application {
+
     public  static User actualuser=null;
     public  static String actualpassword=null;
     public static Event actualevent=null;
+    public static sample.GUI.Event.EventController controller;
+    public static final String ACCOUNT_SID = "AC716eb8d2b4e259443768d2d561d4fcd0";
+    public static final String AUTH_TOKEN = "059e7b37dc3a862232afa94c296f75db";
+
+    public static void sendsms(String body )
+    {    Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        Message message = Message
+                .creator(new PhoneNumber("+21621137090"), new PhoneNumber("+19259005887"),
+                        body).create();
+
+    };
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
+/*    */
 /*
 
         actualuser=us.Login("admin","admin");

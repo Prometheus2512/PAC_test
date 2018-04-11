@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import sample.Main;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,9 +56,14 @@ public class DrawerController implements Initializable {
 
         FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("sample/GUI/Main/sample.fxml"));
         try {
-            Parent root = loader.load();
+          /*  Parent root = loader.load();
             Node pane = FXMLLoader.load(getClass().getResource("../Event/Event.fxml"));
 
+            sample.GUI.Login.LoginController.getController().setContent(pane);
+*/FXMLLoader loader2 = new FXMLLoader(getClass().getResource(
+                    "../Event/Event.fxml"));
+            Parent pane = (Parent) loader2.load();
+            Main.controller  = loader2.getController();
             sample.GUI.Login.LoginController.getController().setContent(pane);
 
         } catch (IOException e1) {

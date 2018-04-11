@@ -13,15 +13,15 @@
             <Image url="@../Main/jjiop.jpeg" />
          </image>
       </ImageView>
-      <AnchorPane layoutX="-1.0" onMouseEntered="#eventplus" onMouseExited="#eventminux" prefHeight="271.0" prefWidth="305.0" style="-fx-pref-width: 600; -fx-pref-height: 400; -fx-background-color: transparent; -fx-focus-traversable: hand;">
+      <AnchorPane layoutX="-1.0" onMouseEntered="#eventplus" onMouseExited="#eventminux" prefHeight="271.0" prefWidth="305.0" style="-fx-pref-width: 600; -fx-pref-height: 400; -fx-background-color: transparent; -fx-cursor: hand;">
          <children>
             <ImageView fx:id="eventspicture" fitHeight="336.0" fitWidth="494.0" layoutX="62.0" layoutY="51.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@jjiop.jpeg" />
                </image>
             </ImageView>
-            <AnchorPane fx:id="eventslayer" layoutX="62.0" layoutY="51.0" opacity="0.55" prefHeight="336.0" prefWidth="494.0" style="-fx-background-color: #2EB398; -fx-pref-width: 495; -fx-pref-height: 307;" />
-            <Label fx:id="events" layoutX="234.0" layoutY="180.0" prefHeight="39.0" prefWidth="158.0" text="EVENTS" textFill="#209a80">
+            <AnchorPane fx:id="eventslayer" layoutX="62.0" layoutY="51.0" opacity="0.55" prefHeight="336.0" prefWidth="494.0" style="-fx-background-color: #2EB398; -fx-pref-width: 495; -fx-pref-height: 307;" visible="false" />
+            <Label fx:id="events" layoutX="234.0" layoutY="180.0" opacity="0.34" prefHeight="39.0" prefWidth="158.0" text="EVENTS" textFill="#209a80">
                <font>
                   <Font size="40.0" />
                </font>

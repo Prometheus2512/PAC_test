@@ -5,6 +5,8 @@
       <root url="jar://$USER_HOME$/Downloads/mysql-connector-java-5.1.45/mysql-connector-java-5.1.45-bin.jar!/" />
       <root url="jar://$USER_HOME$/Downloads/jBCrypt-0.4.jar!/" />
       <root url="jar://$USER_HOME$/Desktop/javafx/restfb-2.3.0/restfb-2.3.0.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/twilio-7.18.0-jar-with-dependencies.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/twilio-7.18.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

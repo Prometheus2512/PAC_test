@@ -79,6 +79,22 @@ public class CommentaryService implements ICommentaryService {
 
     }
 
+    public void deletecommentbyevent() {
+        conn = DBConnection.getInstance().getCon();
+
+        try {
+            String query = "delete from commentary where commentedevent_id =?";
+            PreparedStatement st = conn.prepareStatement(query);
+
+            st.setString(1,String.valueOf(Main.actualevent.getId()));
+            st.execute();
+            System.out.println("Comments deleted !");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(CommentaryService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     @Override
     public void deletecomment(int id) {
         conn = DBConnection.getInstance().getCon();

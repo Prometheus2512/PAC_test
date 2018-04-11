@@ -2,6 +2,7 @@ package sample.Services;
 
 import sample.Database.DBConnection;
 import sample.Entities.Event;
+import sample.Entities.Reservation;
 import sample.IServices.IEventService;
 import sample.IServices.IUserService;
 import sample.Main;
@@ -74,8 +75,8 @@ public class EventService implements IEventService{
             st.setString(3, dateFormat.format(E.getBegin()));
             st.setString(4, dateFormat.format(E.getEnd()));
             st.setString(5, E.getAddress());
-            st.setString(6, String.valueOf(34.885931));
-            st.setString(7, String.valueOf(9.84375));
+            st.setString(6, String.valueOf(E.getPosy()));
+            st.setString(7, String.valueOf(E.getPosx()));
             st.setString(8, String.valueOf(E.getCapacity()));
             st.setString(9, String.valueOf(0));
             st.setString(10, String.valueOf(E.getCost()));
@@ -95,14 +96,18 @@ System.out.println("Event added !");
     }
 
     @Override
-    public void deleteEvent(int id) {
+    public void deleteEvent() {
+        ReservationService rs=new ReservationService();
+        CommentaryService  cs=new CommentaryService();
+        rs.deletebyevent();
+        cs.deletecommentbyevent();
         conn = DBConnection.getInstance().getCon();
 
         try {
             String query = "delete from event where id =?";
             PreparedStatement st = conn.prepareStatement(query);
 
-            st.setString(1,String.valueOf(id));
+            st.setString(1,String.valueOf(Main.actualevent.getId()));
             st.execute();
             System.out.println("Event Deleted ");
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="content" prefHeight="635.0" prefWidth="855.0" style="-fx-background-color: #202729;" styleClass="bodybg" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GUI.Admin.Events.Events">
+   <children>
+      <AnchorPane layoutX="18.0" layoutY="16.0" prefHeight="593.0" prefWidth="809.0" style="-fx-border-color: #2EB398; -fx-border-radius: 5; -fx-border-width: 2;">
+         <children>
+            <Label layoutX="341.0" layoutY="40.0" text="EVENTS LIST" textFill="#2eb398">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="eventstable" layoutX="31.0" layoutY="108.0" prefHeight="441.0" prefWidth="776.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="139.0" text="Name" />
+          <TableColumn fx:id="capacity" prefWidth="92.0" text="Capacity" />
+            <TableColumn fx:id="participants" editable="false" minWidth="0.0" prefWidth="93.0" text="Participants" />
+            <TableColumn fx:id="cost" editable="false" prefWidth="66.0" text="Cost" />
+            <TableColumn fx:id="begins" prefWidth="92.0" text="Begins at" />
+            <TableColumn fx:id="ends" prefWidth="83.0" text="Ends at" />
+            <TableColumn fx:id="status" prefWidth="101.0" text="Status" />
+            <TableColumn fx:id="approve" prefWidth="108.0" text="approve" />
+        </columns>
+      </TableView>
+      <Label fx:id="error" layoutX="190.0" layoutY="581.0" prefHeight="16.0" prefWidth="429.0" text="Label" visible="false" />
+   </children>
+</AnchorPane>

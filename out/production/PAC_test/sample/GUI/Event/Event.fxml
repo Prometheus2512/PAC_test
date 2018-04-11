@@ -5,6 +5,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -73,7 +75,7 @@
       </ScrollPane>
       <AnchorPane prefHeight="47.0" prefWidth="1142.0" style="-fx-background-color: #202729;">
          <children>
-            <JFXButton id="myButton" fx:id="btnmyevents" layoutX="527.0" layoutY="2.0" onAction="#ShowMyEvents" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@../Account/Style.css" text="MY EVENTS" textFill="#ababab">
+            <JFXButton id="myButton" fx:id="btnmyevents" layoutX="527.0" layoutY="2.0" onAction="#ShowMyEvents" prefHeight="45.0" prefWidth="165.0" styleClass="myButton" stylesheets="@../Account/Style.css" text="MY RESERVATIONS" textFill="#ababab">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -83,12 +85,27 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton id="myButton" fx:id="btnnew" layoutX="677.0" layoutY="2.0" onAction="#ShowNewEvent" prefHeight="45.0" prefWidth="105.0" styleClass="myButton" stylesheets="@../Account/Style.css" text="MY RESERVATIONS" textFill="#ababab">
+            <JFXButton id="myButton" fx:id="btnnew" layoutX="677.0" layoutY="2.0" onAction="#ShowNewEvent" prefHeight="45.0" prefWidth="105.0" styleClass="myButton" stylesheets="@../Account/Style.css" text="MY EVENTS" textFill="#ababab">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
          </children>
       </AnchorPane>
+      <TableView fx:id="reservationstable" layoutX="132.0" layoutY="127.0" prefHeight="327.0" prefWidth="788.0" visible="false">
+        <columns>
+          <TableColumn fx:id="theevent" prefWidth="208.0" text="Event" />
+            <TableColumn fx:id="cost" prefWidth="91.0" text="Cost" />
+          <TableColumn fx:id="from" prefWidth="198.0" text="from" />
+            <TableColumn fx:id="to" prefWidth="188.0" text="to" />
+            <TableColumn fx:id="unbook" minWidth="0.0" prefWidth="100.0" text="Unbook" />
+        </columns>
+      </TableView>
+      <Label fx:id="error" layoutX="293.0" layoutY="561.0" text="Label" visible="false" />
+      <Label fx:id="totalcost" layoutX="236.0" layoutY="469.0" prefHeight="62.0" prefWidth="456.0" text="Total: " visible="false">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

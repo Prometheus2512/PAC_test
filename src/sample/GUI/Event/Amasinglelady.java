@@ -4,6 +4,9 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTimePicker;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
@@ -148,6 +151,8 @@ public class Amasinglelady implements Initializable {
     private AnchorPane estarting;
 
     @FXML
+    private Button delete;
+    @FXML
     private JFXButton unbook1;
     @FXML
     private TextField ecapacity;
@@ -173,6 +178,17 @@ public class Amasinglelady implements Initializable {
     private JFXTextArea edescription;
 
     @FXML
+    private AnchorPane deletepane;
+
+    @FXML
+    private Text deletetext;
+
+    @FXML
+    private Button yes;
+
+    @FXML
+    private Button no;
+    @FXML
     private TextField ecost;
     @FXML
     private TextArea content;
@@ -194,12 +210,23 @@ public class Amasinglelady implements Initializable {
             ebdescription.setVisible(true);
             ebname.setVisible(true);
             ebimage.setVisible(true);
-            ebend.setVisible(true);
-            ebstart.setVisible(true);
+            ebend.setVisible(false);
+            ebstart.setVisible(false);
             unbook.setVisible(false);
+            delete.setVisible(true);
+
+
 
         } else {
-            unbook.setVisible(true);
+            ebcapacity.setVisible(false);
+            ebcost.setVisible(false);
+            ebdescription.setVisible(false);
+            ebname.setVisible(false);
+            ebimage.setVisible(false);
+            ebend.setVisible(false);
+            ebstart.setVisible(false);
+            unbook.setVisible(false);
+            delete.setVisible(false);
         }
         ecapacity.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -601,7 +628,9 @@ aux=0;
     void confirmname(ActionEvent event) {
 Main.actualevent.setName(ename.getText());
         EventService es=new EventService();
+        String oldname=Main.actualevent.getName();
         es.updateEventname();
+        Main.sendsms(oldname+"'s name has changed to "+ename.getText());
         name.setText(Main.actualevent.getName());
         ename.setVisible(false);
         name.setVisible(true);
@@ -613,8 +642,12 @@ Main.actualevent.setName(ename.getText());
         ft.setFromValue(1.0);
         ft.setToValue(0.0);
         ft.play();
+
         confirmname.setVisible(false);
-        if(aux==0){ebundo.setVisible(false);}
+        if(aux==0){ebundo.setVisible(false);
+
+
+        }
     }
     @FXML
     void checkname(KeyEvent event) {
@@ -724,6 +757,20 @@ if(aux==0){ebundo.setVisible(false);}
     }
     @FXML
     void deleteevent(ActionEvent event) {
+deletepane.setVisible(true);
+deletetext.setText("Are you sure you want to delete "+name.getText()+" with "+numberofpartipants.getText()+" participants ?" );
+    }
+    @FXML
+    void deleteevent1(ActionEvent event) {
+        deletepane.setVisible(false);
+    }
+    @FXML
+    void yes(ActionEvent event) {
+        EventService es=new EventService();
+        es.deleteEvent();
+       Stage s= (Stage)yes.getScene().getWindow();
+       s.close();
+       Main.controller.reload();
 
     }
 }
